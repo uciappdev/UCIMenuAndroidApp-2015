@@ -49,6 +49,10 @@ public class MainActivity extends ActionBarActivity {
        //Start task:
         new ReadHTMLTask().execute();
 
+        RecyclerView restaurantList = (RecyclerView) findViewById(R.id.cardList);
+        restaurantList.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(linearLayout)
     }
 
     @Override
