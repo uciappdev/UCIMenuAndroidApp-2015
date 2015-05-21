@@ -12,8 +12,11 @@ public class jSoupTest{
         try {
         File input = new File("./input.html");
         Document doc = Jsoup.connect("http://uci.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=3078").get();
-        System.out.println("Created Document...");
-        System.out.println(doc.select("a").text());
+        // this works fine
+        for (Element el : doc.select("a"))
+            System.out.println(el.text());
+        // works in jsoup demo but not here
+	// follows correct syntax from jsoup documentation
         for (Element el : doc.select("div#menu-name > a"))
             System.out.println(el.text());
         } catch(IOException e){}
