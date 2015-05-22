@@ -2,6 +2,9 @@ package com.example.edith.ucimenu;
 
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +17,12 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
+import com.example.edith.ucimenu.restaurantmodel.RestaurantManager;
+
 public class MainActivity extends ActionBarActivity {
+
+    private RecyclerView mRecyclerView;
+    private MainAdapter mAdapter;
 
     private class ReadHTMLTask extends AsyncTask<String, String, String>
     {
@@ -49,10 +57,12 @@ public class MainActivity extends ActionBarActivity {
        //Start task:
         new ReadHTMLTask().execute();
 
-        RecyclerView restaurantList = (RecyclerView) findViewById(R.id.cardList);
-        restaurantList.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(linearLayout)
+        mRecyclerView = (RecyclerView)findViewById(R.id.list);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        mAdapter = new MainAdapter(RestaurantManager.getInstance().getRestaurants(), R.layout.card_layout, this);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
