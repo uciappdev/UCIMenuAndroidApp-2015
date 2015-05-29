@@ -1,4 +1,4 @@
-package com.example.edith.ucimenu;
+package com.example.joshangelsberg.navbartest3;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
