@@ -27,7 +27,7 @@ public class RestaurantManager {
 
     public List<Restaurant> getRestaurants() {
         if (restaurants == null) {
-            restaurants = new ArrayList<Restaurant>();
+            restaurants = new ArrayList<>();
 
             for (String restaurantName : restaurantArray) {
                 Restaurant restaurant = new Restaurant();

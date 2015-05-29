@@ -55,7 +55,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
        //Start task:
-        new ReadHTMLTask().execute();
+        //new ReadHTMLTask().execute();
 
         mRecyclerView = (RecyclerView)findViewById(R.id.list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

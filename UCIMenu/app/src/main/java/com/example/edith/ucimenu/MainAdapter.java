@@ -39,7 +39,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         Restaurant restaurant = restaurants.get(i);
         viewHolder.restaurantName.setText(restaurant.name);
-        viewHolder.restaurantImage.setImageDrawable(mContext.getDrawable(restaurant.getImageResourceID(mContext)));
+        //viewHolder.restaurantImage.setImageDrawable(mContext.getDrawable(restaurant.getImageResourceID(mContext)));
     }
 
     @Override
